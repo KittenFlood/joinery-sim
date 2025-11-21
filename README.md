@@ -157,33 +157,7 @@ npm run preview
 
 ### Static Hosting
 
-This is a static web application that can be deployed to any static hosting service:
-
-#### Vercel
-
-1. Install Vercel CLI: `npm i -g vercel`
-2. Deploy: `vercel`
-
-#### Netlify
-
-1. Install Netlify CLI: `npm i -g netlify-cli`
-2. Deploy: `netlify deploy --prod`
-
-#### GitHub Pages
-
-1. Update `vite.config.ts` to set `base: '/repository-name/'`
-2. Build: `npm run build`
-3. Deploy the `dist/` folder to GitHub Pages
-
-#### Other Static Hosts
-
-Any static file hosting service works:
-- AWS S3 + CloudFront
-- Firebase Hosting
-- Cloudflare Pages
-- Azure Static Web Apps
-
-Simply build the project and upload the contents of the `dist/` directory.
+This is a static web application that can be deployed to any static hosting service
 
 ### Build Configuration
 
