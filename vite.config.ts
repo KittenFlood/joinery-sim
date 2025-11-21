@@ -5,6 +5,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   base: '/joinery-sim/',
+  build: {
+    outDir: 'docs',
+  },
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
