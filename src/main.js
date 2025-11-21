@@ -65,6 +65,13 @@ class BoxJointsApp {
       });
     }
 
+    const clearSceneBtn = document.getElementById('clear-scene-btn');
+    if (clearSceneBtn) {
+      clearSceneBtn.addEventListener('click', () => {
+        this.clearScene();
+      });
+    }
+
     const undoBtn = document.getElementById('undo-btn');
     undoBtn.addEventListener('click', () => {
       this.stateManager.undo();
@@ -131,13 +138,7 @@ class BoxJointsApp {
         reader.onload = (event) => {
           try {
             // Clear all existing board meshes from the scene before importing
-            const currentState = this.stateManager.getState();
-            currentState.boards.forEach(board => {
-              if (board.mesh) {
-                this.scene3D.removeMesh(board.mesh);
-                board.mesh.geometry.dispose();
-              }
-            });
+            this.clearAllBoardMeshes();
             
             const jsonString = event.target.result;
             const result = this.stateManager.importFromJSON(jsonString, Board, JointConfig);
@@ -194,6 +195,26 @@ class BoxJointsApp {
         }
       }
     });
+  }
+
+  clearAllBoardMeshes() {
+    const currentState = this.stateManager.getState();
+    currentState.boards.forEach(board => {
+      if (board.mesh) {
+        this.scene3D.removeMesh(board.mesh);
+        board.mesh.geometry.dispose();
+      }
+    });
+  }
+
+  clearScene() {
+    this.clearAllBoardMeshes();
+    this.stateManager.setState({
+      boards: new Map(),
+      selectedBoardId: null,
+      selectedSide: null
+    });
+    this.showNotification('Scene cleared');
   }
 
   refreshScene() {

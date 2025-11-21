@@ -35,6 +35,7 @@ function App() {
                 <span>Show All Opaque</span>
               </label>
               <button id="deselect-all-btn" className="btn-secondary">Deselect All</button>
+              <button id="clear-scene-btn" className="btn-secondary">Clear</button>
               <button id="add-board-btn" className="btn-secondary">+ Add</button>
             </div>
           </div>
