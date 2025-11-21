@@ -130,6 +130,15 @@ class BoxJointsApp {
         const reader = new FileReader();
         reader.onload = (event) => {
           try {
+            // Clear all existing board meshes from the scene before importing
+            const currentState = this.stateManager.getState();
+            currentState.boards.forEach(board => {
+              if (board.mesh) {
+                this.scene3D.removeMesh(board.mesh);
+                board.mesh.geometry.dispose();
+              }
+            });
+            
             const jsonString = event.target.result;
             const result = this.stateManager.importFromJSON(jsonString, Board, JointConfig);
             
