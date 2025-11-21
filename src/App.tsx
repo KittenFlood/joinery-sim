@@ -1,8 +1,21 @@
+import githubIcon from './github-mark.svg';
+
 function App() {
   return (
     <div className="app-container">
       <header className="app-header">
         <h1>Box Joints Designer</h1>
+        <div className="header-github">
+          <a 
+            href="https://github.com/KittenFlood/joinery-sim/blob/main/README.md" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="github-link"
+            title="View README on GitHub"
+          >
+            <img src={githubIcon} alt="GitHub" className="github-icon" />
+          </a>
+        </div>
         <div className="header-actions">
           <button id="undo-btn" className="icon-btn" title="Undo (Ctrl+Z)">↶</button>
           <button id="redo-btn" className="icon-btn" title="Redo (Ctrl+Y)">↷</button>
