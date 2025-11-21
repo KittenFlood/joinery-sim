@@ -8,3 +8,8 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
 });
+
+export default {
+  base: '/joinery-sim/'
+};
+
