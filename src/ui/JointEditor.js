@@ -193,9 +193,11 @@ export class JointEditor {
           Finger count:
           <input type="number" class="finger-count-input" value="${joint.fingerCount}" step="1" min="1">
         </label>
+        <!--
         <label>
           <input type="checkbox" class="center-keyed-input" ${joint.centerKeyed ? 'checked' : ''}> Center-keyed
         </label>
+        -->
         <label>
           Groove depth:
           <input type="number" class="groove-depth-input" value="${grooveDepth}" step="0.5" min="0.1" max="${boardThickness}">
@@ -278,12 +280,14 @@ export class JointEditor {
       });
     }
 
+    /*
     const centerKeyedInput = container.querySelector('.center-keyed-input');
     if (centerKeyedInput) {
       centerKeyedInput.addEventListener('change', (e) => {
         this.updateJoint(side, { centerKeyed: e.target.checked });
       });
     }
+    */
 
     const grooveDepthInput = container.querySelector('.groove-depth-input');
     if (grooveDepthInput) {
