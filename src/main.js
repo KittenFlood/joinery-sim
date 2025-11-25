@@ -167,6 +167,32 @@ class BoxJointsApp {
       document.body.appendChild(fileInput);
       fileInput.click();
     });
+
+    // Help modal handlers
+    const helpBtn = document.getElementById('help-btn');
+    const helpModal = document.getElementById('help-modal');
+    const helpModalClose = document.getElementById('help-modal-close');
+
+    if (helpBtn && helpModal) {
+      helpBtn.addEventListener('click', () => {
+        helpModal.showModal();
+      });
+    }
+
+    if (helpModalClose && helpModal) {
+      helpModalClose.addEventListener('click', () => {
+        helpModal.close();
+      });
+    }
+
+    // Close modal when clicking on backdrop
+    if (helpModal) {
+      helpModal.addEventListener('click', (e) => {
+        if (e.target === helpModal) {
+          helpModal.close();
+        }
+      });
+    }
   }
 
   setupKeyboardShortcuts() {
@@ -300,6 +326,15 @@ class BoxJointsApp {
     if (loaded) {
       this.refreshScene();
       this.showNotification('Project loaded');
+    }
+    
+    // Auto-open help modal if there are no boards
+    const state = this.stateManager.getState();
+    if (state.boards.size === 0) {
+      const helpModal = document.getElementById('help-modal');
+      if (helpModal) {
+        helpModal.showModal();
+      }
     }
   }
 

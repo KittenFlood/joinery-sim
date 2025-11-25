@@ -22,6 +22,7 @@ function App() {
           <button id="save-btn" className="btn-primary" title="Save (Ctrl+S)">Save</button>
           <button id="export-btn" className="btn-primary" title="Export to JSON">Export</button>
           <button id="import-btn" className="btn-secondary" title="Import from JSON">Import</button>
+          <button id="help-btn" className="btn-secondary" title="Help">Help</button>
         </div>
       </header>
 
@@ -53,6 +54,35 @@ function App() {
           <div id="joint-editor" className="joint-editor"></div>
         </aside>
       </div>
+
+      <dialog id="help-modal" className="help-modal">
+        <div className="help-modal-content">
+          <div className="help-modal-header">
+            <h2>Quick Start Guide</h2>
+            <button id="help-modal-close" className="help-modal-close" title="Close">×</button>
+          </div>
+          <div className="help-modal-body">
+            <div className="help-step">
+              <h3>1. Create a Board</h3>
+              <p>Click the <strong>"+ Add"</strong> button in the Boards panel to create your first board with default dimensions.</p>
+            </div>
+            <div className="help-step">
+              <h3>2. Select a Side</h3>
+              <p>Select the board from the Boards panel, then click on any side (top, bottom, left, right, front, or back) in the 3D viewport to configure a joint on that side.</p>
+            </div>
+            <div className="help-step">
+              <h3>3. Configure the Joint</h3>
+              <p>In the Joints panel, configure your box joint parameters:</p>
+              <ul>
+                <li><strong>Mode</strong>: Choose Fixed (equal fingers) or Variable (custom widths)</li>
+                <li><strong>Finger Width</strong>: Set the width of each finger/gap</li>
+                <li><strong>Finger Count</strong>: Number of fingers in the joint</li>
+                <li><strong>Groove Depth</strong>: Depth of the cut</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 }
